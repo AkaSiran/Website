@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created by Fyc on 2021-7-13.
- * 团队精英
+ * 团队精英(提交测试)
  */
 @RequestMapping("/site/team")
 @RestController
