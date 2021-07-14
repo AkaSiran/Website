@@ -1,6 +1,7 @@
 package com.codeteam.website.modules.portfolio.controller;
 
 import com.codeteam.website.common.core.CommonResult;
+import com.codeteam.website.framework.acpect.annotation.Sign;
 import com.codeteam.website.modules.portfolio.service.SitePortfolioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,7 @@ public class SitePortfolioController
     @Autowired
     private SitePortfolioService sitePortfolioService;
 
+    @Sign
     @GetMapping("/list")
     public CommonResult list()
     {

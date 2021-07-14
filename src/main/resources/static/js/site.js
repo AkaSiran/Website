@@ -4,6 +4,7 @@ $(function (){
         url: "/site/about/list",
         type: 'get',
         contentType: "application/json",
+        headers: {sign : sign("about")},
         success: function (res) {
             if(res.code=="200"){
                 var about = res.data;
@@ -26,6 +27,7 @@ $(function (){
         url: "/site/support/list",
         type: 'get',
         contentType: "application/json",
+        headers: {sign : sign("support")},
         success: function (res) {
             if(res.code=="200"){
                 var support = res.data;
@@ -46,6 +48,7 @@ $(function (){
         url: "/site/team/list",
         type: 'get',
         contentType: "application/json",
+        headers: {sign : sign("team")},
         success: function (res) {
             if(res.code=="200"){
                 var team = res.data;
@@ -67,6 +70,7 @@ $(function (){
         url: "/site/portfolio/list",
         type: 'get',
         contentType: "application/json",
+        headers: {sign : sign("portfolio")},
         success: function (res) {
             if(res.code=="200"){
                 var portfolio = res.data;
@@ -84,4 +88,15 @@ $(function (){
         }
     });
     /*--------------------------------------- end portfolio team ---------------------------------------*/
+    /*--------------------------------------- begin sign value ---------------------------------------*/
+    function sign(apiName)
+    {
+        var currentTime = Date.parse(new Date());
+        var value1 = apiName+'_'+currentTime;
+        var value2 = hex_md5(value1);
+        var base = new Base64();
+        var value3 = base.encode(value1+'_'+value2);
+        return value3;
+    }
+    /*--------------------------------------- end sign value ---------------------------------------*/
 })

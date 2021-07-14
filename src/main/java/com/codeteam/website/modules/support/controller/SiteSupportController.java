@@ -1,6 +1,7 @@
 package com.codeteam.website.modules.support.controller;
 
 import com.codeteam.website.common.core.CommonResult;
+import com.codeteam.website.framework.acpect.annotation.Sign;
 import com.codeteam.website.modules.support.service.SiteSupportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ public class SiteSupportController
     @Autowired
     private SiteSupportService siteSupportService;
 
+    @Sign
     @GetMapping("/list")
     public CommonResult list()
     {
