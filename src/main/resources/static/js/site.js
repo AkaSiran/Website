@@ -1,7 +1,8 @@
+
 $(function (){
     /*--------------------------------------- start site about ---------------------------------------*/
     $.ajax({
-        url: "/site/about/list",
+        url: getContextPath()+"/site/about/list",
         type: 'get',
         contentType: "application/json",
         headers: {sign : sign("about")},
@@ -24,7 +25,7 @@ $(function (){
     /*--------------------------------------- end site about ---------------------------------------*/
     /*--------------------------------------- start site support ---------------------------------------*/
     $.ajax({
-        url: "/site/support/list",
+        url: getContextPath()+"/site/support/list",
         type: 'get',
         contentType: "application/json",
         headers: {sign : sign("support")},
@@ -45,7 +46,7 @@ $(function (){
     /*--------------------------------------- end site support ---------------------------------------*/
     /*--------------------------------------- start site team ---------------------------------------*/
     $.ajax({
-        url: "/site/team/list",
+        url: getContextPath()+"/site/team/list",
         type: 'get',
         contentType: "application/json",
         headers: {sign : sign("team")},
@@ -54,7 +55,7 @@ $(function (){
                 var team = res.data;
                 for(var i=0;i<team.length;i++){
                     var content = '';
-                    content+='<img src="'+team[i].teamImg+'" class="img-responsive" alt="team img 3"><div class="team-des"><h4>'+team[i].teamName+'</h4>' +
+                    content+='<img src="'+getContextPath()+team[i].teamImg+'" class="img-responsive" alt="team img 3"><div class="team-des"><h4>'+team[i].teamName+'</h4>' +
                         '<span>'+team[i].teamPosition+'</span><p>'+team[i].teamDescription+'</p></div>'
                     $("#team_"+i).html(content);
                 }
@@ -67,7 +68,7 @@ $(function (){
     /*--------------------------------------- end site team ---------------------------------------*/
     /*--------------------------------------- start portfolio team ---------------------------------------*/
     $.ajax({
-        url: "/site/portfolio/list",
+        url: getContextPath()+"/site/portfolio/list",
         type: 'get',
         contentType: "application/json",
         headers: {sign : sign("portfolio")},
@@ -76,7 +77,7 @@ $(function (){
                 var portfolio = res.data;
                 for(var i=0;i<portfolio.length;i++){
                     var content = '';
-                    content+='<img src="'+portfolio[i].portfolioImg+'" class="img-responsive"><div class="portfolio-overlay"><h4>'
+                    content+='<img src="'+getContextPath()+portfolio[i].portfolioImg+'" class="img-responsive"><div class="portfolio-overlay"><h4>'
                         +portfolio[i].portfolioHeading+'</h4><p>'+portfolio[i].portfolioBody+'</p><a href="'+portfolio[i].portfolioDetail
                         +'" class="btn btn-default">DETAIL</a></div>'
                     $("#portfolio_"+i).html(content);
@@ -99,4 +100,13 @@ $(function (){
         return value3;
     }
     /*--------------------------------------- end sign value ---------------------------------------*/
+    /*--------------------------------------- begin context path ---------------------------------------*/
+    function getContextPath()
+    {
+        var pathName = document.location.pathname;
+        var index = pathName.substr(1).indexOf("/");
+        var result = pathName.substr(0,index+1);
+        return result;
+    }
+    /*--------------------------------------- end context path ---------------------------------------*/
 })

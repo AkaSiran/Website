@@ -6,7 +6,7 @@
 <title>Code Team</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
-<!--<base href="${basePath}">-->
+<!--<base href="${#httpServletRequest.getContextPath()}">-->
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -24,6 +24,13 @@
 <script th:src="@{/js/site.js}" th:inline="javascript"></script>
 <script th:src="@{/js/md5.js}"></script>
 <script th:src="@{/js/base64.js}"></script>
+<!--<script type="text/javascript" th:inline="javascript">
+	/*<![CDATA[*/
+    ctxPath = /*[[@{/}]]*/ '';
+	/*]]>*/
+
+    console.info(ctxPath);
+</script>-->　
 </head>
 <body id="top">
 
@@ -386,6 +393,5 @@
 	</div>
 </footer>
 <!-- end copyright -->
-
 </body>
 </html>
