@@ -8,7 +8,7 @@ import lombok.Data;
  * 产品案例
  */
 @Data
-public class SitePortfolioResponseDto extends BaseResponseDto<SitePortfolioResponseDto>
+public class SitePortfolioResponseDto extends BaseResponseDto
 {
     /**
      * 产品名称

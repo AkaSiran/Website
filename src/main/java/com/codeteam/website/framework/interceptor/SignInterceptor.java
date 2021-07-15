@@ -57,9 +57,6 @@ public class SignInterceptor implements HandlerInterceptor
         {
             log.info("传入签名值={},转换签名值={}",md5Value,md5Param);
             throw new CustomException("鉴权签名值验证失败");
-        }else
-        {
-            log.info("success");
         }
         return true;
     }

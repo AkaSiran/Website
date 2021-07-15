@@ -8,7 +8,7 @@ import lombok.Data;
  * 关于我们
  */
 @Data
-public class SiteAboutResponseDto extends BaseResponseDto<SiteAboutResponseDto>
+public class SiteAboutResponseDto extends BaseResponseDto
 {
     /**
      * 标题

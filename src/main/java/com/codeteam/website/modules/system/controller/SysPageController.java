@@ -1,5 +1,6 @@
 package com.codeteam.website.modules.system.controller;
 
+import com.codeteam.website.framework.acpect.annotation.VisitLog;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/sys/page")
 public class SysPageController
 {
+    @VisitLog
     @GetMapping("/index")
     public String index()
     {

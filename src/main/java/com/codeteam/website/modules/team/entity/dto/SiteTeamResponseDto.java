@@ -8,7 +8,7 @@ import lombok.Data;
  * 团队精英
  */
 @Data
-public class SiteTeamResponseDto extends BaseResponseDto<SiteTeamResponseDto>
+public class SiteTeamResponseDto extends BaseResponseDto
 {
     /**
      * 姓名

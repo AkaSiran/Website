@@ -1,7 +1,9 @@
 package com.codeteam.website.modules.support.controller;
 
 import com.codeteam.website.common.core.CommonResult;
+import com.codeteam.website.framework.acpect.annotation.OperateHistory;
 import com.codeteam.website.framework.acpect.annotation.Sign;
+import com.codeteam.website.framework.acpect.enums.ApiType;
 import com.codeteam.website.modules.support.service.SiteSupportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +22,7 @@ public class SiteSupportController
     private SiteSupportService siteSupportService;
 
     @Sign
+    @OperateHistory(title = "技术支持",name = "技术支持列表",apiType = ApiType.SELECT)
     @GetMapping("/list")
     public CommonResult list()
     {
