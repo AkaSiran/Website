@@ -24,6 +24,7 @@
             <commons.lang3.version>3.9</commons.lang3.version>
             <google.guava.version>30.1.1-jre</google.guava.version>
             <fastjson.version>1.2.76</fastjson.version>
+            <redis.version>2.5.0</redis.version>
         </properties>
 
         <!--2.添加依赖项-->
@@ -114,6 +115,27 @@
                  <groupId>org.springframework.boot</groupId>
                  <artifactId>spring-boot-starter-aop</artifactId>
                  <scope>test</scope>
+             </dependency>
+
+             <!-- 引入redis-->
+             <dependency>
+                 <groupId>org.springframework.boot</groupId>
+                 <artifactId>spring-boot-starter-data-redis</artifactId>
+                 <version>${redis.version}</version>
+                 <exclusions>
+                     <exclusion>
+                         <groupId>redis.clients</groupId>
+                         <artifactId>jedis</artifactId>
+                     </exclusion>
+                     <exclusion>
+                         <groupId>io.lettuce</groupId>
+                         <artifactId>lettuce-core</artifactId>
+                     </exclusion>
+                 </exclusions>
+             </dependency>
+             <dependency>
+                 <groupId>redis.clients</groupId>
+                 <artifactId>jedis</artifactId>
              </dependency>
 
              <!-- 引入fastjson-->

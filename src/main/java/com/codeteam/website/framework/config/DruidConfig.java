@@ -1,4 +1,4 @@
-package com.codeteam.website.common.config;
+package com.codeteam.website.framework.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import lombok.Data;
