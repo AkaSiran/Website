@@ -29,7 +29,6 @@ public class SignInterceptor implements HandlerInterceptor
     //preHandle:在方法调用前使用
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception
     {
-        System.out.println(request.getRequestURI());
         Sign annotation;
         if (handler instanceof HandlerMethod)
         {
@@ -57,7 +56,6 @@ public class SignInterceptor implements HandlerInterceptor
         String apiName = params[0];
         String currentTime = params[1];
         String md5Value = params[2];
-        System.out.println("md5value:"+md5Value);
         String cacheValue = redisCache.getCacheObject(md5Value);
         if(StringUtils.isNotBlank(cacheValue))
         {

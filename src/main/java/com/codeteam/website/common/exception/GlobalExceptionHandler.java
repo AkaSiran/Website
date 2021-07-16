@@ -34,7 +34,7 @@ public class GlobalExceptionHandler
     @ExceptionHandler(value = NullPointerException.class)
     public CommonResult handleNullPointerException(NullPointerException e)
     {
-        log.error("空指针异常,异常原因={}",e.getMessage());
+        log.error("空指针异常,异常原因={}",e);
         return CommonResult.error("空指针异常");
     }
 
@@ -46,7 +46,7 @@ public class GlobalExceptionHandler
     @ExceptionHandler(value = Exception.class)
     public CommonResult handleException(Exception e)
     {
-        log.error("未知异常,异常原因={}",e.getMessage());
+        log.error("未知异常,异常原因={}",e);
         return CommonResult.error("位置异常");
     }
 }
