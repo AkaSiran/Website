@@ -40,6 +40,7 @@ public class VisitLogAspect
         HttpServletRequest request = ServletUtil.getRequest();
         String visitIp = IPUtil.getOuterNetIp(request);
         Date visitTime = new Date();
+        log.info("站点访问记录,IP地址={},访问时间={}",visitIp,visitTime);
         SysVisitLogRequestDto sysVisitLogRequestDto = new SysVisitLogRequestDto(visitIp,visitTime);
         sysVisitLogService.saveVisitLog(sysVisitLogRequestDto);
     }
