@@ -1,6 +1,18 @@
 
 $(function (){
-    /*--------------------------------------- start site about ---------------------------------------*/
+    /*--------------------------------------- start visit record ---------------------------------------*/
+    $.ajax({
+        url: getContextPath()+"/site/init/record",
+        type: 'get',
+        contentType: "application/json",
+        headers: {sign : sign("record")},
+        success: function (res) {},
+        error: function () {
+            $.shotTotal("出错了！", "error");
+        }
+    });
+
+    /*--------------------------------------- end visit record ---------------------------------------*/
     $.ajax({
         url: getContextPath()+"/site/about/list",
         type: 'get',

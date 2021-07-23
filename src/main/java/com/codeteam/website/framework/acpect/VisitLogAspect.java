@@ -1,5 +1,8 @@
 package com.codeteam.website.framework.acpect;
 
+import com.codeteam.website.common.utils.IPUtil;
+import com.codeteam.website.common.utils.ServletUtil;
+import com.codeteam.website.modules.system.entity.dto.SysVisitLogRequestDto;
 import com.codeteam.website.modules.system.service.SysVisitLogService;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -8,6 +11,9 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 
 /**
  * Created by Fyc on 2021-7-15.
@@ -31,11 +37,11 @@ public class VisitLogAspect
     @Before("visitPointcut()")
     public void beforePointcut(JoinPoint joinPoint)
     {
-        /*HttpServletRequest request = ServletUtil.getRequest();
+        HttpServletRequest request = ServletUtil.getRequest();
         String visitIp = IPUtil.getOuterNetIp(request);
         Date visitTime = new Date();
         log.info("站点访问记录,IP地址={},访问时间={}",visitIp,visitTime);
         SysVisitLogRequestDto sysVisitLogRequestDto = new SysVisitLogRequestDto(visitIp,visitTime);
-        sysVisitLogService.saveVisitLog(sysVisitLogRequestDto);*/
+        sysVisitLogService.saveVisitLog(sysVisitLogRequestDto);
     }
 }
